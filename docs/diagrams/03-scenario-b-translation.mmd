@@ -1,0 +1,31 @@
+sequenceDiagram
+    autonumber
+    actor U as 翻译专员
+    participant C as Copilot 聊天
+    participant O as Orchestrator
+    participant T as Translator Agent
+    participant DI as Document Intelligence
+    participant S as AI Search<br/>(Glossary)
+    participant AIF as AI Foundry
+    participant B as Blob Storage
+
+    U->>C: 上传 abstract.pdf<br/>选择"英→中"，术语库=WHODrug-CN
+    C->>O: 翻译请求 + 文件引用
+    O->>T: handoff(file, lang_pair, glossary_id)
+
+    T->>DI: parse(abstract.pdf)
+    DI-->>T: 结构化段落 + 版式信息
+
+    loop 每个段落
+        T->>S: glossary.lookup(段落文本, top_k=20)
+        S-->>T: 命中术语对照
+        T->>AIF: translate_with_glossary(段落, 术语锁定列表)
+        AIF-->>T: 段落译文
+    end
+
+    T->>T: doc.render(译文 → docx 模板)
+    T->>B: 上传 abstract_zh.docx
+    B-->>T: 下载链接
+    T->>O: 返回链接
+    O->>C: "翻译完成 [下载 docx]"
+    U->>B: 下载译文

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/bicepconfig.json",
+  "analyzers": {
+    "core": {
+      "rules": {
+        "no-hardcoded-env-urls": {
+          "level": "warning"
+        },
+        "secure-parameter-default": {
+          "level": "warning"
+        }
+      }
+    }
+  },
+  "experimentalFeaturesEnabled": {}
+}

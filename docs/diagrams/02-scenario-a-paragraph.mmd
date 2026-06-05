@@ -1,0 +1,28 @@
+sequenceDiagram
+    autonumber
+    actor U as 医学撰稿人
+    participant W as Word + Copilot
+    participant O as Orchestrator Agent
+    participant Wr as Writer Agent
+    participant F as Azure Function<br/>(PubMed Connector)
+    participant AIF as Azure AI Foundry<br/>(GPT-4o)
+    participant S as Azure AI Search
+
+    U->>W: "写一段司美格鲁肽用于 NASH 的<br/>最新进展，引用近 2 年 PubMed 文献"
+    W->>O: 转发用户意图 + Word 文档上下文
+    O->>O: 识别意图 = 写作
+    O->>Wr: handoff(主题, 时间范围, 模板="叙述性综述")
+
+    par 并行检索
+        Wr->>F: pubmed.search("semaglutide NASH", last_2y, top=10)
+        F-->>Wr: 10 篇文献（标题 + 摘要 + DOI）
+    and
+        Wr->>S: kb.search(企业内部综述指南)
+        S-->>Wr: top-3 相关知识
+    end
+
+    Wr->>AIF: compose(指令模板 + 文献 + 用户问题)
+    AIF-->>Wr: 带角标的段落 + 参考列表
+    Wr->>O: 返回结构化结果
+    O->>W: 段落 + "插入 Word" 按钮
+    U->>W: 点击插入 → 段落落入光标位置

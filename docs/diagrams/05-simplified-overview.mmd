@@ -1,0 +1,19 @@
+flowchart LR
+    User["👤 用户<br/>Word / Teams / Web"] --> Orch["🧠 NMI Orchestrator<br/>(Copilot Studio)"]
+    Orch --> T["🌐 Translator"]
+    Orch --> W["✍️ Writer"]
+    Orch --> C["✅ Compliance"]
+    T & W & C --> AI["🤖 Azure AI Foundry<br/>+ AI Search<br/>+ Translator<br/>+ Doc Intelligence"]
+    AI --> Data["💾 Cosmos DB · Blob · Key Vault"]
+    W -.-> Ext["🌍 PubMed · Bing"]
+
+    classDef u fill:#0078D4,color:#fff
+    classDef o fill:#7E57C2,color:#fff
+    classDef a fill:#00BCD4,color:#fff
+    classDef d fill:#FFA000,color:#fff
+    classDef e fill:#90A4AE,color:#fff
+    class User u
+    class Orch,T,W,C o
+    class AI a
+    class Data d
+    class Ext e

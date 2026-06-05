@@ -1,0 +1,91 @@
+flowchart TB
+    subgraph UserChannels["🧑‍⚕️ 用户入口（零额外开发）"]
+        Word["📝 Microsoft Word<br/>+ M365 Copilot 声明式扩展"]
+        Teams["💬 Microsoft Teams<br/>+ Copilot Chat"]
+        Web["🌐 Copilot Studio Web 通道<br/>(浏览器)"]
+    end
+
+    subgraph Identity["🔐 身份与合规"]
+        Entra["Microsoft Entra ID<br/>SSO / 条件访问"]
+        Purview["Microsoft Purview<br/>数据分类与审计"]
+    end
+
+    subgraph CopilotStudio["🎯 Microsoft Copilot Studio — 多智能体编排层"]
+        Orchestrator["🧠 Orchestrator Agent<br/>意图识别 / 任务路由 / 结果汇总"]
+        Translator["🌐 Translator Agent<br/>医学翻译"]
+        Writer["✍️ Writer Agent<br/>写作 + 检索 + 引用"]
+        Compliance["✅ Compliance Agent<br/>规则审查 + 事实审查"]
+    end
+
+    subgraph AzureAI["🤖 Azure AI 平台"]
+        Foundry["Azure AI Foundry<br/>GPT-4o / GPT-5 / Claude on Foundry"]
+        Translator_API["Azure AI Translator<br/>机翻基线"]
+        DocIntel["Azure AI<br/>Document Intelligence<br/>PDF/Word 解析"]
+        AISearch["Azure AI Search<br/>术语库 + 样例库 + KB<br/>(向量 + 混合检索)"]
+    end
+
+    subgraph DataLayer["💾 数据与运行时"]
+        Functions["Azure Functions<br/>(Flex Consumption)<br/>自定义连接器"]
+        Cosmos["Azure Cosmos DB<br/>写作指令 / 规则 / 任务状态"]
+        Blob["Azure Blob Storage<br/>原文 / 译文 docx"]
+        KeyVault["Azure Key Vault<br/>API 密钥 / 连接串"]
+    end
+
+    subgraph External["🌍 外部知识源"]
+        PubMed["PubMed<br/>(NCBI E-utilities)"]
+        Bing["Bing / Google Scholar"]
+    end
+
+    subgraph Observability["📊 可观测性"]
+        AppInsights["Application Insights<br/>+ Azure Monitor"]
+    end
+
+    Word --> Entra
+    Teams --> Entra
+    Web --> Entra
+    Entra --> Orchestrator
+
+    Orchestrator -->|委派| Translator
+    Orchestrator -->|委派| Writer
+    Orchestrator -->|委派| Compliance
+
+    Translator --> Translator_API
+    Translator --> DocIntel
+    Translator --> AISearch
+    Translator --> Foundry
+
+    Writer --> Foundry
+    Writer --> AISearch
+    Writer --> Functions
+    Functions --> PubMed
+    Functions --> Bing
+
+    Compliance --> Foundry
+    Compliance --> Cosmos
+    Compliance --> AISearch
+
+    Translator -.读写.-> Blob
+    Writer -.读写.-> Cosmos
+    Compliance -.读.-> Cosmos
+
+    Foundry -.密钥.-> KeyVault
+    Functions -.密钥.-> KeyVault
+
+    CopilotStudio -.遥测.-> AppInsights
+    AzureAI -.遥测.-> AppInsights
+    DataLayer -.遥测.-> AppInsights
+    AppInsights --> Purview
+
+    classDef user fill:#0078D4,color:#fff,stroke:#005A9E
+    classDef copilot fill:#7E57C2,color:#fff,stroke:#5E35B1
+    classDef ai fill:#00BCD4,color:#fff,stroke:#0097A7
+    classDef data fill:#FFA000,color:#fff,stroke:#FF6F00
+    classDef sec fill:#43A047,color:#fff,stroke:#2E7D32
+    classDef ext fill:#90A4AE,color:#fff,stroke:#546E7A
+
+    class Word,Teams,Web user
+    class Orchestrator,Translator,Writer,Compliance copilot
+    class Foundry,Translator_API,DocIntel,AISearch ai
+    class Functions,Cosmos,Blob,KeyVault data
+    class Entra,Purview,AppInsights sec
+    class PubMed,Bing ext

@@ -1,0 +1,42 @@
+@description('Log Analytics workspace name.')
+param logAnalyticsName string
+
+@description('Application Insights component name.')
+param appInsightsName string
+
+param location string
+param tags object
+
+resource law 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
+  name: logAnalyticsName
+  location: location
+  tags: tags
+  properties: {
+    sku: {
+      name: 'PerGB2018'
+    }
+    retentionInDays: 30
+    features: {
+      enableLogAccessUsingOnlyResourcePermissions: true
+    }
+  }
+}
+
+resource appi 'Microsoft.Insights/components@2020-02-02' = {
+  name: appInsightsName
+  location: location
+  tags: tags
+  kind: 'web'
+  properties: {
+    Application_Type: 'web'
+    WorkspaceResourceId: law.id
+    IngestionMode: 'LogAnalytics'
+    publicNetworkAccessForIngestion: 'Enabled'
+    publicNetworkAccessForQuery: 'Enabled'
+  }
+}
+
+output logAnalyticsId string = law.id
+output appInsightsId string = appi.id
+output appInsightsInstrumentationKey string = appi.properties.InstrumentationKey
+output appInsightsConnectionString string = appi.properties.ConnectionString

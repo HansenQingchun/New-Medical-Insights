@@ -1,0 +1,52 @@
+source_term,target_term,abbreviation,domain,description
+Semaglutide,司美格鲁肽,SEMA,Endocrinology,GLP-1 受体激动剂，用于 2 型糖尿病和肥胖治疗
+Tirzepatide,替尔泊肽,TZP,Endocrinology,GIP/GLP-1 双受体激动剂
+Liraglutide,利拉鲁肽,LIRA,Endocrinology,长效 GLP-1 受体激动剂
+Empagliflozin,恩格列净,EMPA,Endocrinology,SGLT-2 抑制剂
+Dapagliflozin,达格列净,DAPA,Endocrinology,SGLT-2 抑制剂
+Metformin,二甲双胍,MET,Endocrinology,2 型糖尿病一线口服降糖药
+Insulin glargine,甘精胰岛素,IGlar,Endocrinology,长效基础胰岛素类似物
+Insulin lispro,赖脯胰岛素,ILis,Endocrinology,速效胰岛素类似物
+Nonalcoholic steatohepatitis,非酒精性脂肪性肝炎,NASH,Hepatology,代谢相关脂肪性肝病的进展阶段
+Metabolic dysfunction-associated steatotic liver disease,代谢相关脂肪性肝病,MASLD,Hepatology,NAFLD 新命名
+Hepatic fibrosis,肝纤维化,HF,Hepatology,慢性肝损伤后的纤维结缔组织沉积
+Cirrhosis,肝硬化,,Hepatology,肝纤维化终末阶段
+Hepatocellular carcinoma,肝细胞癌,HCC,Oncology,原发性肝癌最常见类型
+Adverse event,不良事件,AE,Pharmacovigilance,临床试验中观察到的任何不利医疗事件
+Serious adverse event,严重不良事件,SAE,Pharmacovigilance,导致死亡、危及生命、住院等的不良事件
+Treatment-emergent adverse event,治疗中出现的不良事件,TEAE,Pharmacovigilance,治疗后发生或加重的不良事件
+Confidence interval,置信区间,CI,Statistics,统计估计的不确定性区间
+Hazard ratio,风险比,HR,Statistics,生存分析中的相对风险度量
+Odds ratio,比值比,OR,Statistics,病例对照研究中的关联强度度量
+Relative risk,相对风险,RR,Statistics,两组事件发生概率的比值
+Number needed to treat,需治疗人数,NNT,Statistics,达到一个额外有益结局所需治疗的患者数
+Intention-to-treat,意向性治疗分析,ITT,Clinical Trial,按随机分组分析所有受试者的方法
+Per-protocol,符合方案集,PP,Clinical Trial,仅分析完全依从方案的受试者
+Randomized controlled trial,随机对照试验,RCT,Clinical Trial,临床证据金标准
+Double-blind,双盲,,Clinical Trial,研究者和受试者均不知分组情况
+Placebo,安慰剂,,Clinical Trial,无活性成分的对照制剂
+Pharmacokinetics,药代动力学,PK,Pharmacology,研究药物在体内吸收分布代谢排泄
+Pharmacodynamics,药效动力学,PD,Pharmacology,研究药物对机体的作用
+Area under the curve,曲线下面积,AUC,Pharmacology,药物暴露量指标
+Maximum concentration,最大浓度,Cmax,Pharmacology,药物在血浆中的峰浓度
+Half-life,半衰期,t1/2,Pharmacology,血浆药物浓度下降一半所需时间
+Bioavailability,生物利用度,F,Pharmacology,药物到达体循环的比例
+Body mass index,体重指数,BMI,Endocrinology,体重(kg)/身高(m)²
+Glycated hemoglobin,糖化血红蛋白,HbA1c,Endocrinology,反映过去 2-3 个月平均血糖水平
+Estimated glomerular filtration rate,估算肾小球滤过率,eGFR,Nephrology,肾功能评估指标
+Major adverse cardiovascular events,主要不良心血管事件,MACE,Cardiology,心血管复合终点
+Myocardial infarction,心肌梗死,MI,Cardiology,冠状动脉急性血流中断
+Heart failure,心力衰竭,HF,Cardiology,心脏泵血功能下降
+Atrial fibrillation,心房颤动,AFib,Cardiology,最常见持续性心律失常
+Type 2 diabetes mellitus,2 型糖尿病,T2DM,Endocrinology,胰岛素抵抗为特征的慢性代谢病
+Type 1 diabetes mellitus,1 型糖尿病,T1DM,Endocrinology,自身免疫性胰岛 β 细胞破坏
+Chronic kidney disease,慢性肾脏病,CKD,Nephrology,肾功能持续下降 ≥3 个月
+End-stage renal disease,终末期肾病,ESRD,Nephrology,需肾脏替代治疗的肾衰竭
+Magnetic resonance imaging,磁共振成像,MRI,Imaging,无电离辐射的高分辨率影像学
+Computed tomography,计算机断层扫描,CT,Imaging,X 线断层影像学
+Positron emission tomography,正电子发射断层扫描,PET,Imaging,代谢分子影像学
+Food and Drug Administration,美国食品药品监督管理局,FDA,Regulatory,美国药品监管机构
+National Medical Products Administration,国家药品监督管理局,NMPA,Regulatory,中国药品监管机构
+European Medicines Agency,欧洲药品管理局,EMA,Regulatory,欧盟药品监管机构
+Investigational new drug,新药临床试验申请,IND,Regulatory,临床试验前向监管机构提交的申请
+New drug application,新药申请,NDA,Regulatory,新药上市许可申请

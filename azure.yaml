@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: nmi-demo
+metadata:
+  template: nmi-demo@0.1.0
+
+infra:
+  provider: bicep
+  path: infra
+  module: main
+
+services:
+  pubmed-connector:
+    project: ./services/pubmed-connector
+    language: python
+    host: function
+  doc-processor:
+    project: ./services/doc-processor
+    language: python
+    host: function
+
+hooks:
+  postprovision:
+    posix:
+      shell: sh
+      run: |
+        echo "✅ Provisioning complete."
+        echo "Next steps:"
+        echo "  1. Upload demo data: see demo-data/README.md"
+        echo "  2. Create Copilot Studio agents: see agents/*.md"
+        echo "  3. Configure M365 Copilot declarative extension"
+    windows:
+      shell: pwsh
+      run: |
+        Write-Host "✅ Provisioning complete." -ForegroundColor Green
+        Write-Host "Next steps:"
+        Write-Host "  1. Upload demo data: see demo-data/README.md"
+        Write-Host "  2. Create Copilot Studio agents: see agents/*.md"
+        Write-Host "  3. Configure M365 Copilot declarative extension"

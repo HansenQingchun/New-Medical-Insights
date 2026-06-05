@@ -1,0 +1,24 @@
+# Python virtual environment
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Azure Developer CLI local env (contains subscription/tenant IDs, endpoints — DO NOT COMMIT)
+.azure/
+*.env
+.env
+
+# Legacy third-party source material (product manual — not redistributable)
+old MDI.pdf
+old MDI.txt
+
+# Node (if any tooling is added)
+node_modules/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.local
+.vscode/
+.idea/

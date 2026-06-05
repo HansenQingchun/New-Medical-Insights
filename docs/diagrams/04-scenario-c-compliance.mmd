@@ -1,0 +1,30 @@
+sequenceDiagram
+    autonumber
+    actor U as 合规审稿人
+    participant C as Copilot 聊天
+    participant O as Orchestrator
+    participant Co as Compliance Agent
+    participant CDB as Cosmos DB
+    participant AIF as AI Foundry
+    participant F as Function<br/>(PubMed)
+
+    U->>C: 粘贴待审段落
+    C->>O: 审查请求
+    O->>Co: handoff(text, ruleset_id="fda-warning-demo")
+
+    par 规则审查
+        Co->>CDB: 加载 FDA-001 至 FDA-005
+        CDB-->>Co: 5 条规则 + 示例
+        Co->>AIF: rule.evaluate(text, rules)
+        AIF-->>Co: findings[规则]
+    and 事实审查
+        Co->>F: 提取声明 → pubmed.search 找证据
+        F-->>Co: 证据片段
+        Co->>AIF: fact.verify(text, evidence)
+        AIF-->>Co: findings[事实]
+    end
+
+    Co->>Co: 合并 + 按严重度排序
+    Co->>O: 返回 JSON findings
+    O->>C: 渲染高亮列表<br/>(Accept / Copy / Ignore)
+    U->>C: 点击 Accept → 应用建议

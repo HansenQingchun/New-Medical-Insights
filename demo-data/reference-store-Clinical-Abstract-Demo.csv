@@ -1,0 +1,16 @@
+source_language,target_language,source_text,target_text,domain
+en,zh,"The primary endpoint was the change in HbA1c from baseline to week 52.","主要终点为 HbA1c 自基线至第 52 周的变化。",Clinical Trial
+en,zh,"Patients were randomly assigned in a 1:1 ratio to receive either semaglutide or placebo.","患者按 1:1 的比例被随机分配接受司美格鲁肽或安慰剂治疗。",Clinical Trial
+en,zh,"No serious adverse events related to the study drug were reported.","未报告与研究药物相关的严重不良事件。",Pharmacovigilance
+en,zh,"The hazard ratio for major adverse cardiovascular events was 0.74 (95% CI, 0.58 to 0.95; P=0.02).","主要不良心血管事件的风险比为 0.74（95% CI，0.58 至 0.95；P=0.02）。",Cardiology
+en,zh,"Inclusion criteria required participants to be aged 18 to 75 years with a confirmed diagnosis of type 2 diabetes mellitus.","入组标准要求受试者年龄 18 至 75 岁，且经确诊为 2 型糖尿病。",Clinical Trial
+en,zh,"The drug demonstrated a dose-dependent reduction in body weight over 68 weeks of treatment.","该药物在 68 周治疗期内表现出剂量依赖性的体重下降。",Endocrinology
+en,zh,"Liver biopsy at week 72 showed resolution of NASH in 59.1% of patients receiving the active treatment.","第 72 周的肝活检显示，接受活性治疗的患者中 59.1% 出现 NASH 缓解。",Hepatology
+en,zh,"Treatment-emergent adverse events occurred in 78.3% of the treatment group versus 76.1% of the placebo group.","治疗组 78.3% 的受试者出现治疗中不良事件，安慰剂组为 76.1%。",Pharmacovigilance
+en,zh,"The pharmacokinetic profile of the compound supports once-weekly subcutaneous administration.","该化合物的药代动力学特征支持每周一次皮下给药。",Pharmacology
+en,zh,"In the intention-to-treat analysis, the difference between groups was statistically significant.","在意向性治疗分析中，两组间差异具有统计学显著性。",Statistics
+en,zh,"Patients with eGFR less than 30 mL/min/1.73m² were excluded from the trial.","eGFR 小于 30 mL/min/1.73m² 的患者被排除在试验之外。",Nephrology
+en,zh,"The most common adverse events were gastrointestinal in nature, including nausea, vomiting, and diarrhea.","最常见的不良事件为胃肠道相关，包括恶心、呕吐和腹泻。",Pharmacovigilance
+en,zh,"This study was conducted in accordance with the principles of the Declaration of Helsinki and approved by the institutional review board.","本研究依据《赫尔辛基宣言》原则开展，并经机构审查委员会批准。",Regulatory
+en,zh,"Written informed consent was obtained from all participants prior to enrollment.","所有受试者在入组前均签署书面知情同意书。",Regulatory
+en,zh,"The cumulative incidence of cardiovascular death was reduced by 19% in the treatment group compared with placebo.","与安慰剂相比，治疗组心血管死亡的累积发生率降低了 19%。",Cardiology
